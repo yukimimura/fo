@@ -1,0 +1,11 @@
+<% @foods.each do |f| %>
+  <ul>
+    <%= f.food %>: 
+    <%= f.category.name %>: 
+    <% if f.fod == 1 %>
+      低
+    <% else %>
+      高
+    <% end %>
+  </ul>
+<% end %>
