@@ -1,6 +1,7 @@
+<h2>食品一覧</h2>
 <% @foods.each do |f| %>
   <ul>
-    <%= f.food %>: 
+    <%= f.name %>: 
     <%= f.category.name %>: 
     <% if f.fod == 1 %>
       低

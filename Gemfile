@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails_admin', '~> 2.0.0.beta'
 gem 'devise'
+gem 'pry-rails'
+gem 'cocoon'

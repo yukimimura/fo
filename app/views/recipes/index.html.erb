@@ -1,0 +1,8 @@
+<h1>レシピ一覧</h1>
+<ul>
+  <% @recipes.each do |r| %>
+    <li>
+      <%= link_to r.title, r %>
+    </li>
+  <% end %>
+</ul>

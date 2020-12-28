@@ -1,0 +1,25 @@
+<h3><%= @recipe.title %>のレシピ</h3>
+
+概要<br/>
+<%= @recipe.description %><br/>
+
+手順
+<% @recipe.steps.each do |s| %>
+  <ul>
+    <%= s.number %>
+    <%= s.description %>
+  </ul>
+<% end %>
+
+材料
+<% @recipe.ingredients.each do |i| %>
+  <ul>
+    <%= i.name %>
+    <%= i.amount %>
+  </ul>
+<% end %>
+
+<% if @recipe.user === current_user %>
+  <%= link_to "編集", edit_recipe_path(@recipe)%>
+  <%= link_to "削除", @recipe, method: :delete, data: {confirm: "本当に削除しますか？"} %>
+<% end %>

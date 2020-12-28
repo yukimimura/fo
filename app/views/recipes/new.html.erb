@@ -1,0 +1,27 @@
+<h3>新規投稿</h3>
+
+
+<%= form_with(model: @recipe, local:true) do |f| %>
+
+  <%= f.label :title, 'Title' %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description, 'Description' %>
+  <%= f.text_field :description %>
+
+  <%= f.fields_for :steps do |s| %>
+    <%= render "step_fields", f: s %>
+  <% end %>
+  <div class="links">
+    <%= link_to_add_association "追加", f, :steps %>
+  </div>
+
+  <%= f.fields_for :ingredients do |i| %>
+    <%= render "ingredient_fields", f: i %>
+  <% end %>
+  <div class="links">
+    <%= link_to_add_association "追加", f, :ingredients %>
+  </div>
+
+  <%= f.submit '投稿' %>
+<% end %>

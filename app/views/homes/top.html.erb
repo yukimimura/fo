@@ -1,4 +1,8 @@
-<h1>Fodmap</h1>
 <h1>HOME</h1>
 
-<%= link_to "食品一覧", foods_index_path %>
+<%= link_to "食品一覧", foods_index_path %><br/>
+<%= link_to "レシピ一覧", recipes_path %><br/>
+<%= link_to "レシピ投稿", new_recipe_path %><br/>
+<%= link_to "ログイン", new_user_session_path %><br/>
+<%= link_to "新規登録", new_user_registration_path %><br/>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
