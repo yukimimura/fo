@@ -1,0 +1,6 @@
+<h1>検索結果</h1>
+<% @recipes.each do |r| %>
+  <ul>
+    <%= link_to r.title, r %>
+  </ul>
+<% end %>

@@ -6,5 +6,11 @@ Rails.application.routes.draw do
   get 'foods/index'
 
   devise_for :users
-  resources :recipes
+
+  resources :recipes do
+    collection do
+      get :search
+    end
+  end
+  
 end
