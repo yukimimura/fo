@@ -1,1 +1,29 @@
 @import "~bootstrap/scss/bootstrap";
+
+body {
+  color: #3f4245;
+  background-color: #f3f6f9;
+}
+
+a {
+  color: #3f4245;
+}
+
+a:hover {
+  color: #8950fc;
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: #ffffff;
+  height: 100vh;
+  padding-top: 50px;
+}
+
+.list-unstyled {
+  margin: 0 auto;
+}
+
+.list-unstyled li {
+  margin: 15px 0px;
+}
