@@ -1,12 +1,19 @@
 @import "~bootstrap/scss/bootstrap";
 
+html {
+  height: 100%;
+}
+
 body {
   color: #3f4245;
   background-color: #f3f6f9;
+  height: 100%;
+  margin: 0;
 }
 
 a {
   color: #3f4245;
+  text-decoration: none;
 }
 
 a:hover {
@@ -14,10 +21,17 @@ a:hover {
   text-decoration: none;
 }
 
+.main {
+  padding: 50px;
+}
+
 .navbar {
   background-color: #ffffff;
   height: 100vh;
   padding-top: 50px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.07);
+  position: fixed;
+  z-index: 100;
 }
 
 .list-unstyled {
@@ -26,4 +40,59 @@ a:hover {
 
 .list-unstyled li {
   margin: 15px 0px;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  .fake {
+    display: none;
+  }
+}
+
+.new {
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.07);
+}
+
+@media screen and (max-width: 450px) {
+  .main {
+    padding: 0;
+  }
+  .new {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 0px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.07);
+  }
+}
+
+.box1 {
+  height: 30%;
+  padding-top: 10px;
+}
+
+.box2 {
+  height: 70%;
+  padding-top: 30px;
+}
+
+.box2 .form-control {
+  height: 80%;
+}
+
+.number {
+  width: 100px;
+}
+
+.fa-backspace {
+  font-size: 20px;
+}
+
+.botton {
+  border-color: #ced4d9;
+  border-width: 1px;
 }
