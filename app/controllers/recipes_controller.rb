@@ -16,8 +16,12 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.build(recipe_params)
-    @recipe.save
-    redirect_to @recipe
+    if @recipe.save
+      flash[:notice] = "レシピを投稿しました。"
+      redirect_to @recipe
+    else
+      render :new
+    end
   end
 
   def edit
@@ -26,14 +30,18 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    @recipe.update(recipe_params)
-    redirect_to @recipe
+    if @recipe.update(recipe_params)
+      flash[:notice] = "レシピを更新しました。"
+      redirect_to @recipe
+    else
+      render :edit
+    end
   end
 
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    flash[:success] = 'レシピは削除されました'
+    flash[:notice] = 'レシピは削除されました'
     redirect_to root_path
   end
 
@@ -52,6 +60,6 @@ class RecipesController < ApplicationController
 
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :description, steps_attributes: [:id, :number, :description, :_destroy], ingredients_attributes: [:id, :name, :amount, :_destroy])
+    params.require(:recipe).permit(:title, :description, :image, steps_attributes: [:id, :number, :content, :_destroy], ingredients_attributes: [:id, :name, :amount, :_destroy])
   end
 end

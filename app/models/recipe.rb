@@ -8,4 +8,9 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients, allow_destroy: true
 
   has_many :favorites, dependent: :destroy
+
+  mount_uploader :image, ImageUploader
+
+  validates :title, presence: true, length: {maximum: 20}
+  validates :description, presence: true, length: {maximum: 60}
 end
