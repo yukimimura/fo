@@ -96,3 +96,9 @@ a:hover {
   border-color: #ced4d9;
   border-width: 1px;
 }
+
+.img_prev:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  transform: scale(1.01, 1.01);
+}

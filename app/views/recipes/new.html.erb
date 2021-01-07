@@ -7,10 +7,12 @@
     <div class="container">
       <div class="row">
         <div class="col-sm">
-          <img src="/assets/sample.jpg" class="img-thumbnail">
-          <%# <%= image_tag "/assets/sample.jpg", size: '60x60', class: "rounded" %>
-          <%= f.file_field :image %>
-          <%= image_tag @recipe.image.url if @recipe.image? %>
+          <%= f.file_field :image, class: 'img_field', style: 'display:none;' %>
+          <% if @recipe.image? %>
+            <%= image_tag @recipe.image.url, onClick: "$('.img_field').click()", class: 'img-thumbnail img_prev' %>
+          <% else %>
+            <img src="/assets/sample.png" class="img-thumbnail img_prev" onClick="$('.img_field').click()" >
+          <% end %>
         </div>
         <div class="col-sm">
           <div class="box1">
@@ -54,3 +56,7 @@
     </div>
   <% end %>
 </div>
+
+
+
+<%= javascript_pack_tag 'image_preview' %>
