@@ -20,7 +20,7 @@ class RecipesController < ApplicationController
       flash[:notice] = "レシピを投稿しました。"
       redirect_to @recipe
     else
-      render :new
+      render 'recipes/new'
     end
   end
 
@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
       flash[:notice] = "レシピを更新しました。"
       redirect_to @recipe
     else
-      render :edit
+      render 'recipes/edit'
     end
   end
 
