@@ -46,10 +46,10 @@ class RecipesController < ApplicationController
   end
 
   def search
-    keyword = params[:keyword]
-    if keyword.present?
+    @keyword = params[:keyword]
+    if @keyword.present?
       @recipes = Recipe.includes(:steps, :ingredients).references(:steps, :ingredients)
-      keyword.split(/[[:blank:]]+/).each do |k|
+      @keyword.split(/[[:blank:]]+/).each do |k|
         next if k == ""
         @recipes =  @recipes.where('title like :q OR description like :q OR name like :q OR content like :q', q: "%#{k}%")
       end

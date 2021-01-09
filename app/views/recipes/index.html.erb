@@ -1,8 +1,17 @@
-<h1>レシピ一覧</h1>
-<ul>
+<h2>レシピ一覧</h2>
+
+<div class="box" id="makeImg">
   <% @recipes.each do |r| %>
-    <li>
-      <%= link_to r.title, r %>
-    </li>
+    <%= link_to r do %>
+      <div class="box-content">
+        <%= image_tag r.image.url, class:"recipe-photo" %>
+        <p class="recipe-title"><%= r.title %></p>
+        <div class="ingredient-box">
+          <% r.ingredients.each do |i| %>
+            <span class="recipe-ingre" ><%= i.name %></span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-</ul>
+</div>

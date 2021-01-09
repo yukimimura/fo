@@ -1,13 +1,43 @@
-<ul class="list-unstyled">
-  <h2 class="mb-5"><%= link_to "Fodmap", root_path %></h2>
-  <li><%= link_to "食品一覧", foods_index_path %></li>
-  <li><%= link_to "レシピ一覧", recipes_path %></li>
-  <li><%= link_to "レシピ投稿", new_recipe_path %></li>
-  <li><%= link_to "ログイン", new_user_session_path %></li>
-  <li><%= link_to "新規登録", new_user_registration_path %></li>
-  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-  <%= form_with url: search_recipes_path, method: :get, local: true do |f| %>
-    <%= f.label :keyword, "レシピを探す"%>
-    <%= f.text_field :keyword, placeholder: "料理名・食材でさがす", class: "form-control" %>
-  <% end %>
-</ul>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navshadow">
+    <div class="container">
+      <a class="navbar-brand" style="color: green;" href="/">Fodmap</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to "食品一覧", foods_index_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "レシピ一覧", recipes_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "レシピ投稿", new_recipe_path, class: 'nav-link' %>
+          </li>
+        </ul>
+        <div class="search_container">
+          <%= form_with url: search_recipes_path, method: :get, local: true do |f| %>
+            <%= f.text_field :keyword, placeholder: "料理名・食材でレシピをさがす", value:@keyword %>
+            <input type="submit" value="&#xf002">
+          <% end %>
+        </div>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "無料会員登録", new_user_registration_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
