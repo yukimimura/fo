@@ -16,13 +16,13 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    <div class="container-fluid">
+    <div class="container parent">
       <div class="row">
-        <div class="col-3 fake"></div>
         <div class="col main">
           <%= render 'layouts/flash_messages' %>
           <%= yield %>
         </div>
+        <div class="col-3 side"></div>
       </div>
     </div>
   </body>

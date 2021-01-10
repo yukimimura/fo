@@ -2,6 +2,7 @@ class Recipe < ApplicationRecord
   validates :image, presence: true
   validates :title, presence: true, length: {maximum: 20}
   validates :description, presence: true, length: {maximum: 60}
+  validates :people, presence: true
 
   belongs_to :user
 

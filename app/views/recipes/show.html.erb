@@ -1,29 +1,40 @@
-<h3><%= @recipe.title %>のレシピ</h3>
-
-概要<br/>
-<%= @recipe.description %><br/>
-
-手順
-<% @recipe.steps.each do |s| %>
-  <ul>
-    <%= s.number %>
-    <%= s.content %>
-  </ul>
-<% end %>
-
-材料
-<% @recipe.ingredients.each do |i| %>
-  <ul>
-    <%= i.name %>
-    <%= i.amount %>
-  </ul>
-<% end %>
-
-<% if @recipe.user === current_user %>
-  <%= link_to "編集", edit_recipe_path(@recipe)%>
-  <%= link_to "削除", @recipe, method: :delete, data: {confirm: "本当に削除しますか？"} %>
-<% end %>
-
-<div id="favorites_buttons_<%= @recipe.id %>">
-  <%= render 'favorites/favorite', recipe: @recipe %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3 class="pb-5"><strong><%= @recipe.title %></strong></h3>
+    </div>
+    <% if @recipe.user === current_user %>
+      <div class="col-sm">
+        <%= link_to "編集", edit_recipe_path(@recipe)%>
+        <%= link_to "削除", @recipe, method: :delete, data: {confirm: "本当に削除しますか？"} %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <%= image_tag @recipe.image.url, class: 'img-thumbnail' %>
+    </div>
+    <div class="col-sm">
+      <%= @recipe.description %><br/>
+      材料(<%= @recipe.people %>人)
+      <% @recipe.ingredients.each do |i| %>
+        <ul>
+          <%= i.name %>
+          <%= i.amount %>
+        </ul>
+      <% end %>
+      <div id="favorites_buttons_<%= @recipe.id %>">
+        <%= render 'favorites/favorite', recipe: @recipe %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    手順
+    <% @recipe.steps.each do |s| %>
+      <ul>
+        <%= s.number %>
+        <%= s.content %>
+      </ul>
+    <% end %>
+  </div>
 </div>

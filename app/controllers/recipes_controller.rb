@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!
   def index
-    @recipes = Recipe.includes(:user)
+    @recipes = Recipe.includes(:user).order(id: "DESC")
   end
 
   def show
@@ -54,12 +54,12 @@ class RecipesController < ApplicationController
         @recipes =  @recipes.where('title like :q OR description like :q OR name like :q OR content like :q', q: "%#{k}%")
       end
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.order(id: "DESC")
     end
   end
 
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :description, :image, steps_attributes: [:id, :number, :content, :_destroy], ingredients_attributes: [:id, :name, :amount, :_destroy])
+    params.require(:recipe).permit(:title, :description, :image, :people, steps_attributes: [:id, :number, :content, :_destroy], ingredients_attributes: [:id, :name, :amount, :_destroy])
   end
 end

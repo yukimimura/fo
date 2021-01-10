@@ -1,4 +1,4 @@
-<h3 class="pb-5"><strong>レシピを投稿</strong></h3>
+<h3 class="pb-5"><strong>Fodmapレシピを投稿</strong></h3>
 
 <div class="new">
   <%= form_with(model: @recipe, local:true) do |f| %>
@@ -30,6 +30,12 @@
     <div class="col-md-10 offset-md-1">
       <div class="container mt-5">
         <p class="mb-3"><strong>材料</strong></p>
+        <div class="mb-3 row">
+          <div class="col-2">
+            <%= f.number_field :people, class:"form-control people" %>
+          </div>
+          <label for="inputPassword" class="col-10 col-form-label">人分</label>
+        </div>
         <%= f.fields_for :ingredients do |i| %>
           <%= render "ingredient_fields", f: i %>
         <% end %>

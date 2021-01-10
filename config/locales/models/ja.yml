@@ -7,6 +7,7 @@ ja:
       recipe:
         title: 料理名
         description: コメント
+        people: 人数
       ingredients:
         name: 材料
         amount: 量
