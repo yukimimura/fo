@@ -1,40 +1,55 @@
 <div class="container">
   <div class="row">
+    <% if @recipe.user === current_user %>
+      <div class="right">
+        <%= link_to edit_recipe_path(@recipe) do %>
+          編集 |
+        <% end %>
+        <%= link_to @recipe, method: :delete, data: {confirm: "レシピを削除しますか？"} do %>
+          削除
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
     <div class="col-sm">
       <h3 class="pb-5"><strong><%= @recipe.title %></strong></h3>
     </div>
-    <% if @recipe.user === current_user %>
-      <div class="col-sm">
-        <%= link_to "編集", edit_recipe_path(@recipe)%>
-        <%= link_to "削除", @recipe, method: :delete, data: {confirm: "本当に削除しますか？"} %>
-      </div>
-    <% end %>
   </div>
   <div class="row">
     <div class="col-sm">
       <%= image_tag @recipe.image.url, class: 'img-thumbnail' %>
-    </div>
-    <div class="col-sm">
-      <%= @recipe.description %><br/>
-      材料(<%= @recipe.people %>人)
-      <% @recipe.ingredients.each do |i| %>
-        <ul>
-          <%= i.name %>
-          <%= i.amount %>
-        </ul>
-      <% end %>
       <div id="favorites_buttons_<%= @recipe.id %>">
         <%= render 'favorites/favorite', recipe: @recipe %>
       </div>
     </div>
+    <div class="col-sm">
+      <p class="pt-2 pb-1"><%= @recipe.description %></p>
+      <p class="pb-3">投稿者：<%= @recipe.user.name %>さん</p>
+      <span class="h5"><strong>材料</strong></span><span> (<%= @recipe.people %>人分)</span>
+      <table class="table mt-2">
+        <tbody>
+          <% @recipe.ingredients.each do |i| %>
+          <tr>
+            <td><%= i.name %></td>
+            <td><%= i.amount %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-  <div class="row">
-    手順
-    <% @recipe.steps.each do |s| %>
-      <ul>
-        <%= s.number %>
-        <%= s.content %>
-      </ul>
-    <% end %>
+  <div class="row mt-3">
+    <h5><strong>作り方</strong></h5>
+    <table class="table mt-2">
+      <tbody>
+        <% @recipe.steps.each do |s| %>
+        <tr class="table-recipe">
+          <th scope="row" class="table-number"><%= s.number %>.</th>
+          <td><%= s.content %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
