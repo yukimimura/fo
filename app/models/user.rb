@@ -18,8 +18,17 @@ class User < ApplicationRecord
   end
 
   has_many :favorites, dependent: :destroy
+  has_many :myfavorites, through: :favorites, source: :recipe
 
   def already_favorited?(recipe)
     self.favorites.exists?(recipe_id: recipe.id)
+  end
+
+  def total_fav
+    total = 0
+    self.myfavorites.each do |f|
+      total += f.favorites.count
+    end
+    return total
   end
 end
