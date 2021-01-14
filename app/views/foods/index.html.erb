@@ -1,12 +1,29 @@
-<h3 class="pb-5"><strong>食品一覧</strong></h3>
-<% @foods.each do |f| %>
-  <ul>
-    <%= f.name %>: 
-    <%= f.category.name %>: 
-    <% if f.fod == 1 %>
-      低
-    <% else %>
-      高
-    <% end %>
-  </ul>
-<% end %>
+<h3 class="pb-5"><strong>Fodmap(フォドマップ)食品一覧</strong></h3>
+
+<div class="container">
+  <% @categories.each do |c| %>
+    <div class="row g-2 mb-5">
+      <h4><strong><%= c.name %></strong></h4>
+      <div class="col-sm">
+        <div class="low">
+          <h4><strong>○ 低FODMAP食</strong></h4>
+          <ul>
+            <% c.foods.where(fod: 1).each do |f| %>
+              <li><%= f.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="high">
+          <h4><strong>× 高FODMAP食</strong></h4>
+          <ul>
+            <% c.foods.where(fod: 2).each do |f| %>
+              <li><%= f.name %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

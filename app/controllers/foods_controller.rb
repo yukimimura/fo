@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.order(id: "DESC")
+    @categories = Category.all
   end
 end

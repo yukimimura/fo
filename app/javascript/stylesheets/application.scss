@@ -284,3 +284,24 @@ header {
   padding-left: 20px;
   padding-right: 20px;
 }
+
+//foods/index
+.low {
+  border: solid #86cee8;
+  padding: 0;
+  border-radius: 10px;
+}
+.low h4 {
+  color: #86cee8;
+  padding: 10px;
+}
+
+.high {
+  border: solid #ed8989;
+  padding: 0;
+  border-radius: 10px;
+}
+.high h4 {
+  color: #ed8989;
+  padding: 10px;
+}
