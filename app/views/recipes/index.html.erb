@@ -1,6 +1,6 @@
-<h3 class="pb-5"><strong>レシピ一覧</strong></h3>
+<h3 class="mb-5 title"><strong>レシピ一覧</strong></h3>
 
-<div class="box" id="makeImg">
+<div class="box">
   <% @recipes.each do |r| %>
     <%= link_to r do %>
       <div class="box-content">
@@ -8,7 +8,7 @@
         <p class="recipe-title"><%= r.title %></p>
         <div class="ingredient-box">
           <% r.ingredients.each do |i| %>
-            <span class="recipe-ingre" ><%= i.name %></span>
+            <span><%= i.name %></span>
           <% end %>
         </div>
       </div>

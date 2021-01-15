@@ -1,4 +1,4 @@
-<h3 class="pb-5"><strong>Fodmapレシピを投稿</strong></h3>
+<h3 class="mb-5 title"><strong>Fodmapレシピを投稿</strong></h3>
 
 <div class="new">
   <%= form_with(model: @recipe, local:true) do |f| %>
@@ -16,11 +16,11 @@
         </div>
         <div class="col-sm">
           <div class="box1">
-            <strong><%= f.label :title, '料理名', class: "form-label" %></strong>
+            <strong><%= f.label :title, '料理名', class: "form-label sub-title" %></strong>
             <%= f.text_field :title, class: "form-control", placeholder: "タイトル" %>
           </div>
           <div class="box2">
-            <strong><%= f.label :description, 'コメント', class: "form-label" %></strong>
+            <strong><%= f.label :description, 'コメント', class: "form-label sub-title" %></strong>
             <%= f.text_area :description, placeholder: "コメント", class: "form-control text" %>
           </div>
         </div>
@@ -29,7 +29,7 @@
 
     <div class="col-md-10 offset-md-1">
       <div class="container mt-5">
-        <p class="mb-3"><strong>材料</strong></p>
+        <p class="mb-3 sub-title"><strong>材料</strong></p>
         <div class="mb-3 row">
           <div class="col-2">
             <%= f.number_field :people, class:"form-control people" %>
@@ -47,7 +47,7 @@
 
     <div class="col-md-10 offset-md-1 mt-5">
       <div class="container mt-3">
-        <p class="mb-3"><strong>作り方</strong></p>
+        <p class="mb-3 sub-title"><strong>作り方</strong></p>
         <%= f.fields_for :steps do |s| %>
           <%= render "step_fields", f: s %>
         <% end %>
