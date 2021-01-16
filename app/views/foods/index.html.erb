@@ -3,10 +3,10 @@
 <div class="container">
   <% @categories.each do |c| %>
     <div class="row g-2 mb-5">
-      <h4 class="sub-title"><strong><%= c.name %></strong></h4>
+      <h5 class="sub-title"><strong><%= c.name %></strong></h5>
       <div class="col-sm">
         <div class="low">
-          <h4><strong>○ 低FODMAP食</strong></h4>
+          <h5><strong>○ 低FODMAP食</strong></h5>
           <ul>
             <% c.foods.where(fod: 1).each do |f| %>
               <li><%= f.name %></li>
@@ -16,7 +16,7 @@
       </div>
       <div class="col-sm">
         <div class="high">
-          <h4><strong>× 高FODMAP食</strong></h4>
+          <h5><strong>× 高FODMAP食</strong></h5>
           <ul>
             <% c.foods.where(fod: 2).each do |f| %>
               <li><%= f.name %></li>

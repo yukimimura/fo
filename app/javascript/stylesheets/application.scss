@@ -76,6 +76,12 @@ header {
   font-size: 30px;
   color: #4c4c4c;
 }
+.dropdown-menu {
+  width: auto;
+  position: relative;
+  top: 50px;
+  left: -50px;
+}
 
 //navbarのフォーム
 .search_container {
@@ -272,7 +278,7 @@ header {
   padding: 0;
   border-radius: 10px;
 }
-.low h4 {
+.low h5 {
   color: #86cee8;
   padding: 10px;
 }
@@ -282,7 +288,7 @@ header {
   padding: 0;
   border-radius: 10px;
 }
-.high h4 {
+.high h5 {
   color: #ed8989;
   padding: 10px;
 }
