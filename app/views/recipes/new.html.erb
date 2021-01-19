@@ -7,6 +7,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm">
+          <strong><%= f.label :image, '写真', class: "form-label sub-title" %></strong>
           <%= f.file_field :image, class: 'img_field', style: 'display:none;' %>
           <% if @recipe.image? %>
             <%= image_tag @recipe.image.url, onClick: "$('.img_field').click()", class: 'img-thumbnail img_prev' %>
@@ -30,12 +31,10 @@
     <div class="col-md-10 offset-md-1">
       <div class="container mt-5">
         <p class="mb-3 sub-title"><strong>材料</strong></p>
-        <div class="mb-3 row">
-          <div class="col-2">
-            <%= f.number_field :people, class:"form-control people" %>
-          </div>
-          <label for="inputPassword" class="col-10 col-form-label">人分</label>
+        <div class="jojo">
+          <%= f.text_field :people, class:"form-control people", placeholder:"何人分" %>
         </div>
+        <span> 例)２人分</span>
         <%= f.fields_for :ingredients do |i| %>
           <%= render "ingredient_fields", f: i %>
         <% end %>

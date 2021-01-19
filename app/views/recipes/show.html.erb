@@ -1,3 +1,16 @@
+<div class="container search-set mb-5">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <div class="search_con">
+        <%= form_with url: search_recipes_path, method: :get, local: true do |f| %>
+          <%= f.text_field :keyword, placeholder: "料理名・食材でレシピをさがす", value:@keyword %>
+          <input type="submit" value="&#xf002">
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="row">
     <% if @recipe.user === current_user %>

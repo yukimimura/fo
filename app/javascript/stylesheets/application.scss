@@ -55,7 +55,7 @@ header {
   background-color: white;
 }
 .navshadow {
-  box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 .navbar-brand {
   font-size: 30px;
@@ -180,9 +180,8 @@ header {
 //recipes/new
 .new {
   padding: 30px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.07);
+  // border-radius: 10px;
+  // box-shadow: 0 0 8px rgba(0, 0, 0, 0.07);
 }
 
 @media screen and (max-width: 450px) {
@@ -190,10 +189,7 @@ header {
     padding: 0;
   }
   .new {
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 0px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.07);
+    padding: 10px;
   }
 }
 .box1 {
@@ -207,8 +203,12 @@ header {
 .box2 .form-control {
   height: 80%;
 }
+.jojo {
+  display: inline-block;
+  max-width: 30%;
+}
 .people {
-  min-width: 60px;
+  margin-bottom: 20px;
 }
 .number {
   width: 100px;
@@ -377,4 +377,43 @@ header {
 }
 .view {
   float: right;
+}
+
+//registrations/new
+.actions {
+  text-align: center;
+}
+.signup-btn {
+  background-color: #dbb34e;
+  border: 0;
+  border-radius: 100px;
+  padding: 14px 0;
+  width: 70%;
+  color: white;
+  font-weight: 600;
+}
+.signup-btn:focus {
+  outline: none;
+}
+.signup-btn:hover {
+  background-color: #e3c477;
+}
+.google-btn {
+  background-color: #a94335;
+  color: white;
+  display: inline-block;
+  border: 0;
+  border-radius: 100px;
+  padding: 14px 0;
+  width: 70%;
+  font-weight: 600;
+}
+.google-btn:hover {
+  color: white;
+  background-color: rgba(169, 67, 53, 0.8);
+}
+.signup-border {
+  max-width: 100%;
+  border: 0.5px solid #f0efef;
+  margin: 40px 0;
 }
